@@ -169,7 +169,7 @@ export default function QuestionPage({
           className="mb-8 frame-stroke"
         >
           <img
-            src="/src/assets/teddy.gif"
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTdwaDE1cDJ5bzdqdjVqdWo5NXMwdGJoZjNiY2k3azl0MWVudjNybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g6e4wRNZ9DaTjfM0dY/giphy.gif"
             alt="Teddy Bear"
             className="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full object-cover shadow-2xl"
           />

@@ -45,7 +45,6 @@ export default function FinalPage({ interactionScore = 0 }: FinalPageProps) {
   const [visibleLines, setVisibleLines] = useState<number>(0);
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [reportReady, setReportReady] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -92,18 +91,11 @@ Margin of error: 0.1% (only if snacks are not shared).`;
   }, [isTyping, typedText, destinyReport]);
 
   useEffect(() => {
-    if (typedText.length === destinyReport.length) {
-      setReportReady(true);
-    }
-  }, [typedText.length, destinyReport.length]);
-
-  useEffect(() => {
     if (typedText.length > 0) return;
 
     const fallbackTimer = setTimeout(() => {
       setIsTyping(true);
       setTypedText(destinyReport);
-      setReportReady(true);
     }, 9000);
 
     return () => clearTimeout(fallbackTimer);

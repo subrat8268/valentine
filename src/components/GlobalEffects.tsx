@@ -25,7 +25,7 @@ type CursorHeart = {
   opacity: number;
 };
 
-const createFloatingNames = (name: string): FloatingName[] =>
+const createFloatingNames = (): FloatingName[] =>
   Array.from({ length: 6 }, (_, id) => {
     const seed = id + 1;
 
@@ -71,7 +71,7 @@ export default function GlobalEffects({
   photoUrl,
   sparkleIntensity = "subtle",
 }: GlobalEffectsProps) {
-  const floatingNames = useMemo(() => createFloatingNames(name), [name]);
+  const floatingNames = useMemo(() => createFloatingNames(), []);
   const [cursorHearts, setCursorHearts] = useState<CursorHeart[]>([]);
   const heartIdRef = useRef(0);
   const heartSeedRef = useRef(1);

@@ -18,12 +18,12 @@ import pic1Url from "./assets/pic1.jpg";
 
 function App() {
   const [showEasterEgg, setShowEasterEgg] = useState(false);
-  const [tapCount, setTapCount] = useState(0);
   const [interactionScore, setInteractionScore] = useState(0);
   const [showHeartCounter, setShowHeartCounter] = useState(false);
-  const [heartCount, setHeartCount] = useState(0);
   const tapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tapCountRef = useRef(0);
+  const heartCountRef = useRef(0);
   const typedRef = useRef("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -41,28 +41,22 @@ function App() {
     const handleTap = () => {
       if (tapTimerRef.current) clearTimeout(tapTimerRef.current);
 
-      setTapCount((prev) => {
-        const next = prev + 1;
-        if (next === 5) {
-          triggerEasterEgg();
-          return 0;
-        }
-        return next;
-      });
+      tapCountRef.current += 1;
+      if (tapCountRef.current === 5) {
+        triggerEasterEgg();
+        tapCountRef.current = 0;
+      }
 
-      setHeartCount((prev) => {
-        const next = prev + 1;
-        if (next >= 10) {
-          setShowHeartCounter(true);
-          window.setTimeout(() => setShowHeartCounter(false), 2500);
-          return 0;
-        }
-        return next;
-      });
+      heartCountRef.current += 1;
+      if (heartCountRef.current >= 10) {
+        setShowHeartCounter(true);
+        window.setTimeout(() => setShowHeartCounter(false), 2500);
+        heartCountRef.current = 0;
+      }
 
       tapTimerRef.current = setTimeout(() => {
-        setTapCount(0);
-        setHeartCount(0);
+        tapCountRef.current = 0;
+        heartCountRef.current = 0;
       }, 1000);
     };
 

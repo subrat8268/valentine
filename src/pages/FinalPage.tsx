@@ -239,7 +239,7 @@ Margin of error: 0.1% (only if snacks are not shared).`;
           >
             <div className="mb-6">
               <QRCodeSVG
-                value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                value="https://www.youtube.com/watch?v=KxpPknA4QrQ&t=531s"
                 size={200}
                 bgColor="#ffffff"
                 fgColor="#fb7185"

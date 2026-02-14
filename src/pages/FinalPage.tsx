@@ -251,9 +251,6 @@ Margin of error: 0.1% (only if snacks are not shared).`;
             <p className="text-rose-500 text-xl font-semibold">
               Scan this for something special 💝
             </p>
-            <p className="text-gray-500 text-sm mt-2">
-              (Update the QR code link to your surprise!)
-            </p>
           </motion.div>
 
           <motion.div
